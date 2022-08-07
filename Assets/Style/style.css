@@ -41,7 +41,7 @@ h3 {
     font-weight:500;
 }
 
-/* utilities */
+/* container to text-center aligns all items in the middle*/
 
 .container{
     width: 100vw;
@@ -79,4 +79,31 @@ h3 {
 
 .hidden{
     display: none;
+}
+
+
+/* button styling */
+.btn {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    width: 20rem;  
+    text-align: center;
+    border: 0.1rem solid #56a5eb;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #56a5eb;
+    background-color: white;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185,235 ,05);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.btn[disabled]:hover{
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
