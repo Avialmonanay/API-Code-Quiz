@@ -82,7 +82,7 @@ h3 {
 }
 
 
-/* button styling */
+/* button styling removes underline on btns, adds hover state, moves button up slightly when hovering. */
 .btn {
     font-size: 1.8rem;
     padding: 1rem 0;
