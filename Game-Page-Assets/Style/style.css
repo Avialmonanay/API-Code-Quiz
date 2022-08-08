@@ -1,3 +1,6 @@
+
+
+/* choice-container creates styling for choice buttons and hover effects */
 .choice-container{
     display: flex;
     margin: 0.5rem;
@@ -14,12 +17,14 @@
     transition: transform 150ms;
 }
 
+/* centers choice option A,B,C,E */
 .choice-prefix{
     padding: 1.5rem 2.5rem;
     background-color: #56a5eb;
     color: white;
 }
 
+/* adds padding to choice answers */
 .choice-text{
     padding: 1.5rem;
 }
