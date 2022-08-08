@@ -1,32 +1,37 @@
 
 
-/* choice-container creates styling for choice buttons and hover effects */
-.choice-container{
+/* choice creates styling for choice buttons and hover effects */
+.choice{
     display: flex;
-    margin: 0.5rem;
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 18px;
     border: 0.1rem solid rgb(86, 135, 235, 0.25);
     background-color: white;
 }
 
-.choice-container:hover{
+.choice:hover{
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185,235 ,05);
+    opacity: .5;
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
 
 /* centers choice option A,B,C,E */
-.choice-prefix{
-    padding: 1.5rem 2.5rem;
-    background-color: #56a5eb;
+.choice-letter{
+    background-color: #4bbe68;
     color: white;
+    height: 100%;
+    padding: 1%;
 }
 
 /* adds padding to choice answers */
 .choice-text{
-    padding: 1.5rem;
     width: 100%;
 }
 
+#timer{
+    display: flex;
+    width: 100%;
+    background-color: orange;
+    justify-content: flex-end;
+}
