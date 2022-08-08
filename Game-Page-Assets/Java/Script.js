@@ -1,5 +1,5 @@
-const question =document.getElementById=("question");
-const choices = Array.from(document.getElementsByClassName=("choice-text"));
+const question = document.getElementById("question");
+const choices = Array.from(document.getElementsByClassName("choice-text"));
 
 
 let currentQuestion = {};
@@ -44,20 +44,18 @@ const MAX_QUESTIONS = 3;
 
 // start game function with score at 0
 startGame = () => {
-    questionCounter =0;
+    questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    console.log("hi")
-    getNewQuestion();  
-}
+    getNewQuestion();
+};
 
 getNewQuestion = () => {
     questionCounter++;
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionsIndex];
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
-    console.log("hi again")
+    console.log
 }
-
 
 startGame ();
