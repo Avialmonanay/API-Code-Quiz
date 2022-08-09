@@ -1,11 +1,79 @@
 var timerEl = document.getElementById('countdown')
+var game = document.getElementById('game')
+var win = document.getElementById('correct')
+var loss = document.getElementById('loss')
+var container = document.querySelector('.container')
 
+const text = document.createElement('p')
+const home = document.createElement('a')
+const hscore = document.createElement('a')
+
+text.textContent = 'Quiz Over'
+home.textContent = '<a class="btn" href="Main-Page.html">Home</a>'
+hscore.textContent = '<a class="btn" href="highscores.html">highscores</a>'
+
+
+
+var quizQs = [
+    {
+        question: "1",
+
+        answers:{
+            a: "1",
+            b: "2",
+            c: "3",
+            d: "4",
+        },
+
+        answer: "b"
+    },
+
+    {
+        question: "2",
+
+        answers:{
+            a: "1",
+            b: "2",
+            c: "3",
+            d: "4",
+        },
+
+        answer: "c"
+    },
+
+    {
+        question: "3",
+
+        answers:{
+            a: "1",
+            b: "2",
+            c: "3",
+            d: "4",
+        },
+
+        answer: "a"
+    },
+
+    {
+        question: "4",
+
+        answers:{
+            a: "1",
+            b: "2",
+            c: "3",
+            d: "4",
+        },
+
+        answer: "d"
+    }
+]
 
 
 
 
 function countdown() {
-    var timeLeft = 90;
+    startquiz()
+    var timeLeft = 3;
   
     var timeInterval = setInterval(function () {
       if (timeLeft > 1) {
@@ -23,5 +91,24 @@ function countdown() {
         
     }, 1000);
   }
+
+  startquiz() {
+
+  }
+
+
+
+
+
+
+
+
+
+// function gameover() {
+//     container.innerHTML = '';
+// container.append(text, home, hscore)
+// }
+
+
 
   countdown()
