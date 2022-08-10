@@ -65,16 +65,31 @@ var quizQs = [
         },
 
         answer: "d"
+    },
+
+    {
+        question: "5",
+
+        answers:{
+            a: "1",
+            b: "2",
+            c: "3",
+            d: "4",
+        },
+
+        answer: "d"
     }
+
+
 ]
 
 
 
 
 function countdown() {
-    startquiz()
+    getquestion ()
     var timeLeft = 3;
-  
+    
     var timeInterval = setInterval(function () {
       if (timeLeft > 1) {
         timerEl.textContent = timeLeft + ' seconds remaining';
@@ -86,15 +101,31 @@ function countdown() {
         timerEl.textContent = '0 seconds remaining';
 
         clearInterval(timeInterval)
-        gameover()
+        // gameover()
         }
+
         
     }, 1000);
   }
 
-  startquiz() {
+  function getquestion () {
 
+
+    if (quizQs.length === 0) {
+        gameover()
+    }
+    
+    const i = Math.floor(Math.random()* quizQs.length);
+    var displayq = quizQs[i].question
+    
+
+
+
+    // console.log(quizQs)
+    console.log(question)
+    
   }
+
 
 
 
@@ -110,5 +141,5 @@ function countdown() {
 // }
 
 
-
+//   getquestion()
   countdown()
