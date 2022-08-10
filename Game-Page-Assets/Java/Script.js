@@ -3,6 +3,7 @@ var game = document.getElementById('game')
 var win = document.getElementById('correct')
 var loss = document.getElementById('loss')
 var container = document.querySelector('.container')
+var displayq = document.getElementById('question')
 
 const text = document.createElement('p')
 const home = document.createElement('a')
@@ -16,7 +17,7 @@ hscore.textContent = '<a class="btn" href="highscores.html">highscores</a>'
 
 var quizQs = [
     {
-        question: "1",
+        question: "I am not a number",
 
         answers:{
             a: "1",
@@ -29,7 +30,7 @@ var quizQs = [
     },
 
     {
-        question: "2",
+        question: "I am not a number",
 
         answers:{
             a: "1",
@@ -42,7 +43,7 @@ var quizQs = [
     },
 
     {
-        question: "3",
+        question: "I am not a number",
 
         answers:{
             a: "1",
@@ -55,7 +56,7 @@ var quizQs = [
     },
 
     {
-        question: "4",
+        question: "I am not a number",
 
         answers:{
             a: "1",
@@ -68,7 +69,7 @@ var quizQs = [
     },
 
     {
-        question: "5",
+        question: "I am not a number",
 
         answers:{
             a: "1",
@@ -115,14 +116,20 @@ function countdown() {
         gameover()
     }
     
-    const i = Math.floor(Math.random()* quizQs.length);
-    var displayq = quizQs[i].question
-    
+    const index = Math.floor(Math.random() * quizQs.length)
+        thisquestion = quizQs[index];
+        displayq.innerText= thisquestion.question
+        // displayq.innerHTML = displayq.question;
 
 
 
+
+
+    // quizQs.splice(index, 1)
+
+    console.log(displayq)
     // console.log(quizQs)
-    console.log(question)
+ 
     
   }
 
