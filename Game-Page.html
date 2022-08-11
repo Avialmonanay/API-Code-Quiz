@@ -12,7 +12,7 @@
 
 <header Id="timer">
     <p>Correct: <span id= "correct">0</span></p>
-    <p>Incorrect: <span id = "wrong">0</span></p>
+    <p>Incorrect: <span id = "loss">0</span></p>
     <p>Time left: <span id="countdown">90 seconds remaining</span></p>
 </header>
 
@@ -23,18 +23,20 @@
 
             <!-- page choice elements -->
             <div>
-                <p class = choice id="choice1">Choice 1</p>
+                <p class = choice id="choice1" data-state="">Choice 1</p>
             </div>
             <div>
-                <p class = choice id="choice2">Choice 2</p>
+                <p class = choice id="choice2" data-state="">Choice 2</p>
             </div>
             <div>
-                <p class = choice id="choice3">Choice 3</p>
+                <p class = choice id="choice3" data-state="">Choice 3</p>
             </div>
             <div>
-                <p class = choice id="choice4">Choice 4</p>
+                <p class = choice id="choice4" data-state="">Choice 4</p>
             </div>
+            <div class = result> HI</div>
         </div>
+        
     </section>
 
     <script src="Game-Page-Assets/Java/Script.js"></script>
