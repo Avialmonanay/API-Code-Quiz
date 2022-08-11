@@ -24,10 +24,6 @@
     padding: 1%;
 }
 
-/* adds padding to choice answers */
-.choice-text{
-    width: 100%;
-}
 
 #timer{
     display: flex;
