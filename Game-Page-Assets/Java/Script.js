@@ -10,6 +10,7 @@ var c1 = document.getElementById('choice1')
 var c2 = document.getElementById('choice2')
 var c3 = document.getElementById('choice3')
 var c4 = document.getElementById('choice4')
+var choice = document.querySelector('.choice')
 let correct = 0;
 let incorrect = 0;
 let index = 0;
@@ -17,16 +18,7 @@ let index = 0;
 
 
 
-const text = document.createElement('p')
-const home = document.createElement('a')
-const hscore = document.createElement('a')
-
-text.textContent = 'Quiz Over'
-home.textContent = '<a class="btn" href="Main-Page.html">Home</a>'
-hscore.textContent = '<a class="btn" href="highscores.html">highscores</a>'
-
-
-
+//quiz choices, answers, and questions.
 var quizQs = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -80,7 +72,7 @@ var quizQs = [
 
 var timeLeft = 90;
 
-
+// starts a timer at 90 seconds calls to getquestion when starting
 function countdown() {
     getquestion()
     
@@ -96,7 +88,7 @@ function countdown() {
             timerEl.textContent = '0 seconds remaining';
 
             clearInterval(timeInterval)
-            // gameover()
+            gameOver()
         }
 
 
@@ -106,11 +98,12 @@ function countdown() {
 //gets a questions from the quizQs array, itterates through the questions each time it is called. If at the end of questions calls to game over function.
 function getquestion() {
 
-    if (index === 5) {
-        gameover()
+    // if at the end of the index end game
+    if (index == 5) {
+        gameOver()
     }
 
-    
+    //displays the current questions pulled from the array
     thisquestion = quizQs[index];
     displayq.innerText = thisquestion.question
 
@@ -136,6 +129,7 @@ container.addEventListener("click", function(event) {
     if (element.matches("p")){
         var state = element.getAttribute("data-state")
         
+        //if coorrect add 5 seconds, display message, get new questions
         if (state == "true"){
         console.log("win")
         correct++;
@@ -145,6 +139,7 @@ container.addEventListener("click", function(event) {
         getquestion()
         }
 
+        //if incorrect - 15 seconds. Display message, get new questions
         else {
             console.log("loss")
             incorrect++;
@@ -159,17 +154,33 @@ container.addEventListener("click", function(event) {
 });
 
 
+function gameOver(){
+
+    container.textContent = "";
+    container.classList.add('flex-column')
+    
+    var inputName = document.createElement("input")
+    inputName.type = "text"
+    inputName.placeholder = "Enter Name"
+    inputName.id = "input-style"
+
+    var  submit = document.createElement("button")
+    submit.type = "submit"
+    submit.innerText = "Submit"
+    submit.id = "submission"
+
+    var quizOver = document.createElement("h1")
+    quizOver.innerText = "Quiz Over!"
+
+    var logScore = document.createElement("p")
+    logScore.innerText = "Log Your Score!"
+
+    container.append(quizOver)
+    container.append(logScore)
+    container.append(inputName)
+    container.append(submit)
+}
 
 
 
-
-
-
-// function gameover() {
-//     container.innerHTML = '';
-// container.append(text, home, hscore)
-// }
-
-
-//   getquestion()
 countdown()
