@@ -18,6 +18,7 @@ html {
     border-style: groove;
     justify-content: space-between;
     margin: 0 10px;
+    background-color: aliceblue;
 }
 
 .btn:hover {

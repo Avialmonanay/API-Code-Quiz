@@ -154,24 +154,29 @@ container.addEventListener("click", function(event) {
 });
 
 
+// present Quiz Over message, add input box for name
 function gameOver(){
-
+    //clears container and add flex-column class
     container.textContent = "";
     container.classList.add('flex-column')
     
+    //creation of input field
     var inputName = document.createElement("input")
     inputName.type = "text"
     inputName.placeholder = "Enter Name"
     inputName.id = "input-style"
 
+    // creation of submit button
     var  submit = document.createElement("button")
     submit.type = "submit"
     submit.innerText = "Submit"
     submit.id = "submission"
 
+    //creation of <h1> element
     var quizOver = document.createElement("h1")
     quizOver.innerText = "Quiz Over!"
 
+    //creation of <p> element
     var logScore = document.createElement("p")
     logScore.innerText = "Log Your Score!"
 
