@@ -14,6 +14,8 @@ var choice = document.querySelector('.choice')
 let correct = 0;
 let incorrect = 0;
 let index = 0;
+var userJSON = []
+var scoreJSON = []
 
 
 
@@ -101,6 +103,7 @@ function getquestion() {
     // if at the end of the index end game
     if (index == 5) {
         gameOver()
+    
     }
 
     //displays the current questions pulled from the array
@@ -163,14 +166,17 @@ function gameOver(){
     //creation of input field
     var inputName = document.createElement("input")
     inputName.type = "text"
-    inputName.placeholder = "Enter Name"
-    inputName.id = "input-style"
+    inputName.placeholder = "Enter Initials"
+    inputName.id = "userInput"
 
     // creation of submit button
     var  submit = document.createElement("button")
     submit.type = "submit"
     submit.innerText = "Submit"
     submit.id = "submission"
+
+    var form = document.createElement("form")
+    
 
     //creation of <h1> element
     var quizOver = document.createElement("h1")
@@ -182,10 +188,38 @@ function gameOver(){
 
     container.append(quizOver)
     container.append(logScore)
-    container.append(inputName)
-    container.append(submit)
+    container.append(form)
+    form.append(inputName)
+    form.append(submit)
+
+
+
+    var userName = document.getElementById("userInput")
+    var submition = document.getElementById("submission")
+    
+    submition.addEventListener("click", function (event) {
+        event.preventDefault()
+        var UsersName = userName.value
+        console.log("I was clicked")
+        console.log(UsersName + " " + correct)
+        
+        userJSON.push(UsersName)
+        scoreJSON.push(correct)
+
+        localStorage.setItem("userJSON", JSON.stringify(userJSON));
+        localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
+
+
+        return
+ 
+    })
+
 }
 
 
 
+
+
+
+// gameOver()
 countdown()
