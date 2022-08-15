@@ -186,29 +186,45 @@ function gameOver(){
     var logScore = document.createElement("p")
     logScore.innerText = "Log Your Score!"
 
+    var highscores = document.createElement("a")
+    highscores.innerText = "Highscores"
+    highscores.href = "highscores.html"
+    highscores.id = "highScore"
+
+        
+
+    
     container.append(quizOver)
     container.append(logScore)
     container.append(form)
     form.append(inputName)
     form.append(submit)
+    container.append(highscores)
+    
 
 
-
+// variables for user information
     var userName = document.getElementById("userInput")
     var submition = document.getElementById("submission")
     
+    //watch event for submit. Default prevented
     submition.addEventListener("click", function (event) {
         event.preventDefault()
         var UsersName = userName.value
-        console.log("I was clicked")
-        console.log(UsersName + " " + correct)
         
+        
+        
+        //sends score to array
         userJSON.push(UsersName)
         scoreJSON.push(correct)
 
+        
+
+
+        //turns array into a json and sets in local storage
         localStorage.setItem("userJSON", JSON.stringify(userJSON));
         localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
-
+        
 
         return
  
@@ -221,5 +237,5 @@ function gameOver(){
 
 
 
-// gameOver()
+
 countdown()

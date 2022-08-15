@@ -1,31 +1,38 @@
+// list element for creation of list items
 var listEl = document.getElementById("list")
 
-var nameStorage = [];
-var scoreStorage = [];
 
 
 
+
+// Event listener watches for page load.
 window.addEventListener('load', function() {
     const userName = JSON.parse(localStorage.getItem("userJSON"));
     const userScore = JSON.parse(localStorage.getItem("scoreJSON"));
 
-    
-    console.log(userScore)
-    console.log(userName)
-    nameStorage.push(userName)
-    scoreStorage.push(userScore)
+
 
     createScore(userScore, userName)
 })
 
 
+//create score functions pull json variables based on interval and then create list items.
 function createScore (userScore, userName) {
 
 
-    for (var i = 0; i < userScore.length; i++) {
+    var nameEl = []
+    var score = []
+    nameEl.push(userName)
+    score.push(userScore)
+    localStorage.setItem("nameStorage", JSON.stringify(nameEl));
+    localStorage.setItem("scoreStorage",JSON.stringify(score));
+
+
+
+    for (var i = 0; i < nameEl.length; i++) {
         
-        var scoreDisplay = userScore[i];
-        var nameDisplay = userName[i];
+        var scoreDisplay = score[i];
+        var nameDisplay = nameEl[i];
   
 
 
