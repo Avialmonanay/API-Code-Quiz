@@ -101,7 +101,7 @@ function countdown() {
 function getquestion() {
 
     // if at the end of the index end game
-    if (index == 5) {
+    if (index >= 5) {
         gameOver()
     
     }
@@ -211,19 +211,44 @@ function gameOver(){
     submition.addEventListener("click", function (event) {
         event.preventDefault()
         var UsersName = userName.value
+        const userNameStorage = JSON.parse(localStorage.getItem("userJSON"));
+        const userScoreStorage = JSON.parse(localStorage.getItem("scoreJSON"));
         
-        
-        
-        //sends score to array
-        userJSON.push(UsersName)
-        scoreJSON.push(correct)
-
-        
+        if (userJSON.length === 0) {
 
 
-        //turns array into a json and sets in local storage
-        localStorage.setItem("userJSON", JSON.stringify(userJSON));
-        localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
+            //sends score to array
+            userJSON.push(UsersName)
+            scoreJSON.push(correct)
+    
+            
+    
+    
+            //turns array into a json and sets in local storage
+            localStorage.setItem("userJSON", JSON.stringify(userJSON));
+            localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
+        //pulls current local storage to be added on push
+
+        }
+
+        else {
+
+
+
+
+            console.log(userScoreStorage)
+            console.log(userNameStorage)
+            //sends score to array
+            userJSON.push(UsersName, userNameStorage)
+            scoreJSON.push(correct, userScoreStorage)
+    
+            
+    
+    
+            //turns array into a json and sets in local storage
+            localStorage.setItem("userJSON", JSON.stringify(userJSON));
+            localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
+        }
         
 
         return

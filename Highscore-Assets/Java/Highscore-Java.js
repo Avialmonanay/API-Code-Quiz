@@ -19,20 +19,15 @@ window.addEventListener('load', function() {
 //create score functions pull json variables based on interval and then create list items.
 function createScore (userScore, userName) {
 
-
-    var nameEl = []
-    var score = []
-    nameEl.push(userName)
-    score.push(userScore)
-    localStorage.setItem("nameStorage", JSON.stringify(nameEl));
-    localStorage.setItem("scoreStorage",JSON.stringify(score));
+console.log(userName)
+console.log(userScore)
 
 
 
-    for (var i = 0; i < nameEl.length; i++) {
+    for (var i = 0; i < userName.length; i++) {
         
-        var scoreDisplay = score[i];
-        var nameDisplay = nameEl[i];
+        var scoreDisplay = userScore[i];
+        var nameDisplay = userName[i];
   
 
 
@@ -41,11 +36,11 @@ function createScore (userScore, userName) {
 
     var initial = document.createElement("h1")
     initial.setAttribute("class", "border initials")
-    initial.innerText = nameDisplay
+    initial.innerText = nameDisplay[i]
 
     var score = document.createElement("h1")
     score.setAttribute("class", "border score")
-    score.innerText = scoreDisplay
+    score.innerText = scoreDisplay[i]
 
     listEl.append(listItem)
     listItem.append(initial)

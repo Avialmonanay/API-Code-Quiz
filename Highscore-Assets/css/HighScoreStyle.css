@@ -6,7 +6,8 @@ ul {
 
 .row{
     display: flex;
-    background-color: red;
+    margin: 5px;
+    /* background-color: red; */
 }
 
 .border {
