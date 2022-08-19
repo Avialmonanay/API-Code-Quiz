@@ -5,7 +5,7 @@ var listEl = document.getElementById("list")
 
 
 
-// Event listener watches for page load.
+// Event listener watches for page load. pulls items from local storage
 window.addEventListener('load', function() {
     const userName = JSON.parse(localStorage.getItem("userJSON"));
     const userScore = JSON.parse(localStorage.getItem("scoreJSON"));
@@ -26,11 +26,11 @@ console.log(userScore)
 
     for (var i = 0; i < userName.length; i++) {
         
-        var scoreDisplay = userScore[i];
-        var nameDisplay = userName[i];
+        var scoreDisplay = userScore;
+        var nameDisplay = userName;
   
 
-
+        //creates high scores based on Local storage array
     var listItem = document.createElement("li")
     listItem.setAttribute("class", "row")
 

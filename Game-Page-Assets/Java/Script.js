@@ -77,7 +77,7 @@ var timeLeft = 90;
 // starts a timer at 90 seconds calls to getquestion when starting
 function countdown() {
     getquestion()
-    
+
 
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
@@ -103,7 +103,7 @@ function getquestion() {
     // if at the end of the index end game
     if (index >= 5) {
         gameOver()
-    
+
     }
 
     //displays the current questions pulled from the array
@@ -127,19 +127,19 @@ function getquestion() {
 
 }
 
-container.addEventListener("click", function(event) {
+container.addEventListener("click", function (event) {
     var element = event.target
-    if (element.matches("p")){
+    if (element.matches("p")) {
         var state = element.getAttribute("data-state")
-        
+
         //if coorrect add 5 seconds, display message, get new questions
-        if (state == "true"){
-        console.log("win")
-        correct++;
-        win.textContent = correct
-        timeLeft+=5;
-        result.textContent = "Correct! + 5 Seconds"
-        getquestion()
+        if (state == "true") {
+            console.log("win")
+            correct++;
+            win.textContent = correct
+            timeLeft += 5;
+            result.textContent = "Correct! + 5 Seconds"
+            getquestion()
         }
 
         //if incorrect - 15 seconds. Display message, get new questions
@@ -147,7 +147,7 @@ container.addEventListener("click", function(event) {
             console.log("loss")
             incorrect++;
             loss.textContent = incorrect;
-            timeLeft-=15;
+            timeLeft -= 15;
             result.textContent = "Incorrect! - 15 Seconds"
             getquestion()
         }
@@ -158,11 +158,11 @@ container.addEventListener("click", function(event) {
 
 
 // present Quiz Over message, add input box for name
-function gameOver(){
+function gameOver() {
     //clears container and add flex-column class
     container.textContent = "";
     container.classList.add('flex-column')
-    
+
     //creation of input field
     var inputName = document.createElement("input")
     inputName.type = "text"
@@ -170,13 +170,13 @@ function gameOver(){
     inputName.id = "userInput"
 
     // creation of submit button
-    var  submit = document.createElement("button")
+    var submit = document.createElement("button")
     submit.type = "submit"
     submit.innerText = "Submit"
     submit.id = "submission"
 
     var form = document.createElement("form")
-    
+
 
     //creation of <h1> element
     var quizOver = document.createElement("h1")
@@ -191,68 +191,53 @@ function gameOver(){
     highscores.href = "highscores.html"
     highscores.id = "highScore"
 
-        
 
-    
+
+
     container.append(quizOver)
     container.append(logScore)
     container.append(form)
     form.append(inputName)
     form.append(submit)
     container.append(highscores)
-    
 
 
-// variables for user information
+
+    // variables for user information
     var userName = document.getElementById("userInput")
     var submition = document.getElementById("submission")
-    
+
     //watch event for submit. Default prevented
     submition.addEventListener("click", function (event) {
         event.preventDefault()
         var UsersName = userName.value
         const userNameStorage = JSON.parse(localStorage.getItem("userJSON"));
         const userScoreStorage = JSON.parse(localStorage.getItem("scoreJSON"));
-        
-        if (userJSON.length === 0) {
+
+        //checks if a local storage array already exists. if not then grabs inputted name and High score and stores them in local storage
+        if (!userNameStorage) {
 
 
-            //sends score to array
             userJSON.push(UsersName)
             scoreJSON.push(correct)
-    
-            
-    
-    
-            //turns array into a json and sets in local storage
+
             localStorage.setItem("userJSON", JSON.stringify(userJSON));
-            localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
-        //pulls current local storage to be added on push
+            localStorage.setItem("scoreJSON", JSON.stringify(scoreJSON));
 
         }
-
+        //if the array in local storage does exist. then it grabs those items and adds the new items to that array.
         else {
 
 
+            userNameStorage.push(UsersName)
+            userScoreStorage.push(correct)
 
-
-            console.log(userScoreStorage)
-            console.log(userNameStorage)
-            //sends score to array
-            userJSON.push(UsersName, userNameStorage)
-            scoreJSON.push(correct, userScoreStorage)
-    
-            
-    
-    
-            //turns array into a json and sets in local storage
-            localStorage.setItem("userJSON", JSON.stringify(userJSON));
-            localStorage.setItem("scoreJSON",JSON.stringify(scoreJSON));
+            localStorage.setItem("userJSON", JSON.stringify(userNameStorage));
+            localStorage.setItem("scoreJSON", JSON.stringify(userScoreStorage));
         }
-        
 
         return
- 
+
     })
 
 }
@@ -262,5 +247,5 @@ function gameOver(){
 
 
 
-
+//starts the countdown timer on load.
 countdown()
