@@ -188,7 +188,7 @@ function gameOver() {
 
     var highscores = document.createElement("a")
     highscores.innerText = "Highscores"
-    highscores.href = "highscores.html"
+    highscores.href = "Highscores.html"
     highscores.id = "highScore"
 
 
